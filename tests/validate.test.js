@@ -14,6 +14,8 @@ test("isValidContact: отклоняет мусор", () => {
   assert.equal(isValidContact("@ab"), false); // короче 4 символов
   assert.equal(isValidContact("12"), false); // слишком короткий телефон
   assert.equal(isValidContact("ivan@"), false);
+  assert.equal(isValidContact("-------"), false); // нет ни одной цифры
+  assert.equal(isValidContact("() - () -"), false);
 });
 
 test("validateLead: валидная заявка проходит, поля триммятся", () => {
@@ -54,6 +56,21 @@ test("validateLead: превышение лимитов — ошибка", () =>
   assert.equal(result.ok, false);
   assert.ok(result.errors.name);
   assert.ok(result.errors.question);
+});
+
+test("validateLead: имя ровно в лимит проходит", () => {
+  const result = validateLead({ name: "а".repeat(LIMITS.name), contact: "@ivan_petrov" });
+  assert.equal(result.ok, true);
+});
+
+test("validateLead: превышение лимита destination — ошибка", () => {
+  const result = validateLead({
+    name: "Иван",
+    contact: "@ivan_petrov",
+    destination: "в".repeat(LIMITS.destination + 1),
+  });
+  assert.equal(result.ok, false);
+  assert.ok(result.errors.destination);
 });
 
 test("validateLead: отсутствующие необязательные поля — пустые строки", () => {

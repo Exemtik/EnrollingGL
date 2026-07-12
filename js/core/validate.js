@@ -6,8 +6,12 @@ const TG_RE = /^@[A-Za-z0-9_]{4,32}$/;
 const PHONE_RE = /^\+?[\d\s\-()]{7,20}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function isPhone(value) {
+  return PHONE_RE.test(value) && (value.match(/\d/g) ?? []).length >= 7;
+}
+
 export function isValidContact(value) {
-  return TG_RE.test(value) || PHONE_RE.test(value) || EMAIL_RE.test(value);
+  return TG_RE.test(value) || isPhone(value) || EMAIL_RE.test(value);
 }
 
 export function validateLead(raw) {
