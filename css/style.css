@@ -157,3 +157,24 @@ form button:disabled { opacity: 0.6; cursor: wait; }
   padding: 12px 0;
 }
 .faq-item summary { cursor: pointer; font-weight: 600; }
+
+/* Планшет и уже */
+@media (max-width: 900px) {
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .myths-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 1.9rem; }
+}
+
+/* Телефон */
+@media (max-width: 600px) {
+  .section { padding: 40px 16px; }
+  .hero { padding-top: 56px; padding-bottom: 56px; }
+  .metrics-grid { grid-template-columns: 1fr; }
+  .about-card { flex-direction: column; }
+  .nav { flex-wrap: wrap; }
+  .nav-links { gap: 12px; flex-wrap: wrap; }
+  form input, form textarea { max-width: none; }
+}
+
+/* Якорные секции не прячутся под липкой шапкой */
+.section { scroll-margin-top: 72px; }
