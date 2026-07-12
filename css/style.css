@@ -1,0 +1,112 @@
+:root {
+  --bg: #ffffff;
+  --panel: #f6f7f9;
+  --border: #e0e3e8;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --accent: #2f5fde;
+  --error: #d64545;
+  --success: #2e9e5b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-logo { font-weight: 700; color: var(--text); text-decoration: none; }
+
+.nav-links { display: flex; align-items: center; gap: 20px; }
+
+.nav-links a { color: var(--muted); text-decoration: none; }
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  color: #ffffff !important;
+  background: var(--accent);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.section { max-width: 960px; margin: 0 auto; padding: 64px 20px; }
+
+h1 { font-size: 2.4rem; line-height: 1.2; margin: 0 0 16px; }
+h2 { font-size: 1.7rem; margin: 0 0 24px; }
+
+.muted { color: var(--muted); }
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+form label { display: block; margin-bottom: 16px; }
+
+form input, form textarea {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+form button {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+
+form button:disabled { opacity: 0.6; cursor: wait; }
+
+.field-error { display: block; color: var(--error); font-size: 0.9rem; min-height: 1.2em; }
+
+.form-status { color: var(--error); }
+.form-status a { color: var(--accent); }
+
+.form-success { color: var(--success); font-weight: 600; }
+
+/* honeypot: убрать с глаз, но оставить в DOM для ботов */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--muted);
+}
