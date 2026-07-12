@@ -28,7 +28,9 @@ export function initForm(formEl, successEl, { onSubmit, telegramUrl }) {
     button.disabled = true;
     const sent = await onSubmit({
       ...result.lead,
-      company: formEl.elements.company.value, // honeypot уходит как есть
+      // honeypot: в DOM поле называется hp_extra (чтобы его не трогал автофилл),
+      // но в JSON для Worker'а уходит под прежним ключом company
+      company: formEl.elements.hp_extra.value,
     });
     button.disabled = false;
 
