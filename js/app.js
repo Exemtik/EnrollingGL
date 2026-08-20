@@ -12,7 +12,7 @@ import { CONTACTS } from "./data/content.js";
 
 // URL Cloudflare Worker'а (см. README, раздел «Деплой»).
 // Пустая строка = демо-режим: форма показывает ссылку на Telegram.
-const WORKER_URL = "";
+const WORKER_URL = "https://enrollinggl-leads.exemtik.workers.dev/";
 
 renderHero(document.querySelector("#hero"));
 renderMetrics(document.querySelector("#facts"));

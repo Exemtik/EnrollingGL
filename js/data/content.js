@@ -101,5 +101,5 @@ export const FAQ = [
 ];
 
 export const CONTACTS = {
-  telegram: "https://t.me/EnrollingGL",
+  telegram: "https://t.me/munilinst",
 };
